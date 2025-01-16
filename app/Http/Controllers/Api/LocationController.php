@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class LocationController extends Controller
 {
@@ -76,7 +75,7 @@ class LocationController extends Controller
         ];
 
         return response()->json([
-            'data' => $locations
+            'data' => $locations,
         ]);
     }
 }
