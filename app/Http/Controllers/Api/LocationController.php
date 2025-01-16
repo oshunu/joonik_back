@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Log;
 
 class LocationController extends Controller
 {
-
     public function index(Request $request)
     {
         $data = $request->all();
@@ -80,5 +79,4 @@ class LocationController extends Controller
             'data' => $locations
         ]);
     }
-
 }

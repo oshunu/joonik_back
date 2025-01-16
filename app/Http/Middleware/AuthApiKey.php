@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\Log;
 
 class AuthApiKey
 {
-    /* 
-        Middleware para validar el API_KEY en las solicitudes. 
+    /*
+        Middleware para validar el API_KEY en las solicitudes.
     */
     public function handle(Request $request, Closure $next): Response
     {
         $authorizationHeader = $request->header('Authorization');
-        
         $apiKey = null;
         if ($authorizationHeader && preg_match('/Bearer\s(\S+)/', $authorizationHeader, $matches)) {
             $apiKey = $matches[1];
@@ -27,7 +26,6 @@ class AuthApiKey
         if ($apiKey !== env('APP_API_KEY')) {
             return response()->json(['error' => 'API_KEY Invalida, No autorizado'], 401);
         }
-        
         return $next($request);
     }
 }
