@@ -15,7 +15,7 @@ class AuthApiKey
     {
         $authorizationHeader = $request->header('Authorization');
         $apiKey = null;
-        if ($authorizationHeader && preg_match('/Bearer\s(\S+)/', $authorizationHeader, $matches)) {
+        if ($authorizationHeader && is_string($authorizationHeader) && preg_match('/Bearer\s(\S+)/', $authorizationHeader, $matches)) {
             $apiKey = $matches[1];
         }
         if (! $apiKey) {
